@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+    <title>Zadanie 2</title>
+  </head>
+  <body>
+    <div class="mainWrapper">
+      <div class="formWrapper">
+        <form name="bookForm" id="bookForm">
+          <label for="bookTitle">Book title :</label>
+          <input type="text" id="bookTitle" name="bookTitle" /><br />
+
+          <label for="bookAuthor">Book author :</label>
+          <input type="text" id="bookAuthor" name="bookAuthor" /><br />
+
+          <label for="bookPriority">Read priority :</label>
+          <select id="bookPriority" name="bookPriority">
+            <option value="">Choose an option</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option></select
+          ><br />
+
+          <label for="bookCategory">Book category :</label>
+          <select id="bookCategory" name="bookCategory">
+            <option value="">Choose an option</option>
+            <option value="action">Action</option>
+            <option value="fantasy">Fantasy</option>
+            <option value="horror">Horror</option></select
+          ><br />
+
+          <button id="submitButton">Submit !</button>
+        </form>
+
+        <ul class="validationWrapper">
+          <li class="titleVer invalid">Minimum 1 character in title</li>
+          <li class="authorVer invalid">Minimum 3 characters in author</li>
+          <li class="priorityVer invalid">Priority chosen</li>
+          <li class="categoryVer invalid">Category chosen</li>
+        </ul>
+      </div>
+      <div class="tableWrapper">
+        <table class="bookTable">
+          <tr>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Read priority</th>
+            <th>Category</th>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>
