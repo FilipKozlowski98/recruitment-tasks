@@ -1,25 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import { useEffect, useState } from "react";
+import styled from "styled-components";
+import { Display } from "./Display";
+import { Navigation } from "./Navigation";
+import { fetchQuotes } from "./utils";
 
-function App() {
+const MainWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`;
+
+const App = () => {
+  const [quotes, changeQuotes] = useState([]);
+  const [firstQuote, changeFirst] = useState([true]);
+  const [database, changeDatabase] = useState([]);
+  useEffect(() => {
+    fetchQuotes(changeDatabase);
+  }, []);
+  console.log(quotes);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <MainWrapper>
+      <Display quote={"test"} />
+      <Navigation
+        changeQuotes={changeQuotes}
+        changeFirst={changeFirst}
+        databaseLength={database.length}
+        firstQuote={firstQuote}
+        quotes={quotes}
+      />
+    </MainWrapper>
   );
-}
+};
 
 export default App;
