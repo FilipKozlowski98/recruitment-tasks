@@ -5,10 +5,12 @@ import { Navigation } from "./Navigation";
 import { fetchQuotes } from "./utils";
 
 const MainWrapper = styled.div`
+  width: 100vw;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
 `;
 
 const App = () => {
@@ -18,11 +20,10 @@ const App = () => {
   useEffect(() => {
     fetchQuotes(changeDatabase);
   }, []);
-  console.log(quotes);
 
   return (
     <MainWrapper>
-      <Display quote={"test"} />
+      <Display quote={database[quotes.at(-1)]} />
       <Navigation
         changeQuotes={changeQuotes}
         changeFirst={changeFirst}

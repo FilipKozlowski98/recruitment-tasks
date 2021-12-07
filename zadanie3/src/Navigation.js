@@ -5,26 +5,31 @@ const NavigationWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 100px;
+  margin: 70px 0;
 `;
 const PreviousButton = styled.button`
   width: 200px;
   height: 100px;
   border-radius: 20px;
-  border: 2px solid black;
+  border: 5px solid black;
   margin-right: 50px;
+  &:active {
+    box-shadow: inset -8px 9px 21px 2px #000000;
+  }
 `;
 const NextButton = styled.button`
   width: 200px;
   height: 100px;
   border-radius: 20px;
-  border: 2px solid black;
+  border: 5px solid black;
   background-color: green;
   cursor: pointer;
+  &:active {
+    box-shadow: inset -8px 9px 21px 2px #000000;
+  }
 `;
 
 export const Navigation = (props) => {
-  console.log(props.quotes.length);
   return (
     <NavigationWrapper>
       <PreviousButton
@@ -33,6 +38,9 @@ export const Navigation = (props) => {
           cursor: `${props.firstQuote ? "not-allowed" : "pointer"}`,
         }}
         onClick={() => {
+          if (props.firstQuote) {
+            return;
+          }
           if (props.quotes.length <= 1) {
             props.changeFirst(true);
           }
