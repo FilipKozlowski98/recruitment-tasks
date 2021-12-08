@@ -51,7 +51,9 @@ export const Navigation = (props) => {
       </PreviousButton>
       <NextButton
         onClick={() => {
-          props.changeFirst(false);
+          if (props.firstQuote) {
+            props.changeFirst(false);
+          }
           props.changeQuotes([
             ...props.quotes,
             drawNumber(props.databaseLength),
